@@ -1,31 +1,47 @@
-# 🎓 Welcome to My Study Hub! 📚
+# 🏠 Welcome to the Year 5 Study Guide! 🎓
 
-!!! tip "🩺 HKUMed BNurs Year 5"
-    This site is my personal collection of 📖 **Study Guides** for the **HKUMed BNurs Year 5** courses — all in one cozy place! ✨
+👋 Hey there, fellow night-shift scholar! This is my personal study hub for **HKUMed Bachelor of Nursing — Year 5** 🏥. Everything I learn, cram, and occasionally panic about lives here — styled like a **classic Macintosh from 1984** 🖥️, because studying is more fun when your notes look like they boot from a floppy disk. 💾
 
----
+!!! tip "💡 How to use this site"
+    Pick a course from the tabs above ☝️ or the table below 👇. Each course folder has its own landing page with roadmaps, topic lists, and diagrams. More notes drop in as the semester rolls on! 📅
 
-## 📚 Year 5 Courses
+!!! warning "⚠️ Study disclaimer"
+    These are **personal study notes**, not official course materials. Always double-check against lecture slides and your lecturers' guidance! 🧑‍🏫
 
-| 🏷️ Course Code | 📘 Course Title |
-|:--:|:--|
-| 🧠 **NURS5602** | Clinical Reasoning in Practice |
-| 🎗️ **NURS5601** | Oncology Nursing and Palliative Care |
-| 👵 **NURS5600** | Nursing of Older Adults |
-| 👑 **NURS5603** | Leadership, Management and Informatics |
-| 🔬 **NURS5607** | Evidence-based Practice |
+## 📚 The Year 5 Line-up
 
----
+| Emoji | Code | Course Title | Jump In |
+|:-----:|:-----|:-------------|:-------:|
+| 🧠 | **NURS5602** | Clinical Reasoning in Practice | [Open ➡️](nurs5602-clinical-reasoning/index.md) |
+| 🎗️ | **NURS5601** | Oncology Nursing and Palliative Care | [Open ➡️](nurs5601-oncology-palliative/index.md) |
+| 👵 | **NURS5600** | Nursing of Older Adults | [Open ➡️](nurs5600-older-adults/index.md) |
+| 👑 | **NURS5603** | Leadership, Management and Informatics | [Open ➡️](nurs5603-leadership-informatics/index.md) |
+| 🔬 | **NURS5607** | Evidence-based Practice | [Open ➡️](nurs5607-evidence-based-practice/index.md) |
 
-## 🚀 Quick Navigation
+## 🗺️ Site Map (Mermaid test drive 🚗)
 
-- 🧠 [NURS5602 – Clinical Reasoning in Practice](NURS5602.md) — sharpen your clinical thinking! 💡
-- 🎗️ [NURS5601 – Oncology Nursing & Palliative Care](NURS5601.md) — caring with compassion ❤️
-- 👵 [NURS5600 – Nursing of Older Adults](NURS5600.md) — supporting healthy ageing 🌿
-- 👑 [NURS5603 – Leadership, Management & Informatics](NURS5603.md) — lead with confidence 📊
-- 🔬 [NURS5607 – Evidence-based Practice](NURS5607.md) — research meets real practice 🧪
+```mermaid
+flowchart LR
+    HOME["🏠 Home"] --> CR["🧠 NURS5602<br/>Clinical Reasoning"]
+    HOME --> ONC["🎗️ NURS5601<br/>Oncology & Palliative"]
+    HOME --> OA["👵 NURS5600<br/>Older Adults"]
+    HOME --> LDR["👑 NURS5603<br/>Leadership & Informatics"]
+    HOME --> EBP["🔬 NURS5607<br/>Evidence-based Practice"]
+```
 
----
+## ⚡ Quick Links
 
-!!! success "✅ Study Smart, Not Hard!"
-    Keep calm, stay curious, and good luck with Year 5! 🍀💪
+- 🐙 [GitHub Repository](https://github.com/PureCo2Fe/BNurs-Y5) — source of truth
+- 🏫 [HKUMed](https://www.med.hku.hk/) — the mothership
+- 📝 This page in the repo: `docs/index.md`
+
+## ✅ Semester Checklist
+
+- [x] 🖥️ Set up retro Mac study site
+- [x] 📂 Create one folder per course
+- [ ] 🧠 Survive clinical reasoning
+- [ ] 🔬 Finish the EBP assignment
+- [ ] 🎉 Graduate!!!
+
+!!! note "🍎 Fun fact"
+    The original 1984 Macintosh had **128 KB of RAM** — this entire website is smaller than one modern cat photo. 🐈📷

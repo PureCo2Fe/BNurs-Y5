@@ -1,52 +1,59 @@
-site_name: Y5 Notes
+site_name: BNurs Year 5 Study Guide 🩺
 site_url: https://y5.note.co2fe.eu.org
-site_description: Personal knowledge base powered by MkDocs Material
+site_description: >-
+  Personal study guide hub for HKUMed Bachelor of Nursing Year 5 courses —
+  clinical reasoning, oncology & palliative care, older adults, leadership,
+  and evidence-based practice.
 site_author: PureCo2Fe
+repo_url: https://github.com/PureCo2Fe/BNurs-Y5
+repo_name: PureCo2Fe/BNurs-Y5
+edit_uri: edit/main/docs/
 
-# 自定义域名
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/PureCo2Fe
+copyright: Copyright &copy; 2025 PureCo2Fe — made with 💾 and ☕
 
 theme:
   name: material
-  language: zh
-  palette:
-    # 暗色模式
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    # 亮色模式
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+  language: en
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand
     - navigation.top
+    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.code.annotate
+    - content.action.view
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/retro-mac.css
+
+extra_javascript:
+  - javascripts/mermaid-init.js
 
 plugins:
   - search
-  - minify:
-      minify_html: true
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
   - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -56,11 +63,24 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - tables
-  - toc:
-      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-extra_javascript:
-  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
-
-copyright: Copyright &copy; 2026 Y5S1 PureCo2Fe
+nav:
+  - 🏠 Home: index.md
+  - 🧠 NURS5602 · Clinical Reasoning:
+      - nurs5602-clinical-reasoning/index.md
+      - 🗺️ Overview & Roadmap: nurs5602-clinical-reasoning/overview.md
+  - 🎗️ NURS5601 · Oncology & Palliative:
+      - nurs5601-oncology-palliative/index.md
+      - 🗺️ Overview & Roadmap: nurs5601-oncology-palliative/overview.md
+  - 👵 NURS5600 · Older Adults:
+      - nurs5600-older-adults/index.md
+      - 🗺️ Overview & Roadmap: nurs5600-older-adults/overview.md
+  - 👑 NURS5603 · Leadership & Informatics:
+      - nurs5603-leadership-informatics/index.md
+      - 🗺️ Overview & Roadmap: nurs5603-leadership-informatics/overview.md
+  - 🔬 NURS5607 · Evidence-based Practice:
+      - nurs5607-evidence-based-practice/index.md
+      - 🗺️ Overview & Roadmap: nurs5607-evidence-based-practice/overview.md

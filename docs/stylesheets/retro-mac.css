@@ -1,0 +1,851 @@
+/* ==========================================================================
+   🖥️  RETRO MAC THEME — classic Mac OS (System 6/7, 1984–1991) aesthetic
+   for MkDocs Material. Strictly grayscale, pixel typography, hard shadows,
+   pinstripe title bars. No indigo anywhere. ⚫⚪
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
+/* --------------------------------------------------------------------------
+   1. Material design token overrides — light "platinum gray" scheme
+   -------------------------------------------------------------------------- */
+/* NOTE: Material's palette CSS defines colors ON <body> via
+   [data-md-color-primary=indigo] / [data-md-color-accent=...] attribute
+   selectors, which shadow plain :root custom-property values for all body
+   descendants. We therefore bind our overrides to the same attribute
+   selectors (equal specificity, later in cascade → we win). */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-primary],
+[data-md-color-accent] {
+  /* brand + accent */
+  --md-primary-fg-color: #dddddd;
+  --md-primary-fg-color--light: #eeeeee;
+  --md-primary-fg-color--dark: #cccccc;
+  --md-primary-bg-color: #000000;
+  --md-accent-fg-color: #000000;
+  --md-accent-fg-color--transparent: rgba(0, 0, 0, 0.08);
+
+  /* default (light) scheme */
+  --md-default-bg-color: #ffffff;
+  --md-default-bg-color--light: #ffffff;
+  --md-default-bg-color--lighter: #ffffff;
+  --md-default-bg-color--lightest: #f4f4f4;
+  --md-default-fg-color: #000000;
+  --md-default-fg-color--light: #333333;
+  --md-default-fg-color--lighter: #666666;
+  --md-default-fg-color--lightest: #999999;
+
+  /* typography */
+  --md-typeset-color: #000000;
+  --md-typeset-a-color: #000000;
+
+  /* code */
+  --md-code-fg-color: #000000;
+  --md-code-fg-color--light: #333333;
+  --md-code-bg-color: #eeeeee;
+  --md-code-bg-color--light: #f6f6f6;
+
+  /* admonitions / footnotes / search */
+  --md-admonition-fg-color: #000000;
+  --md-admonition-bg-color: #ffffff;
+  --md-footer-bg-color: #cccccc;
+  --md-footer-bg-color--dark: #bbbbbb;
+  --md-footer-fg-color: #000000;
+  --md-footer-fg-color--light: #333333;
+  --md-footer-fg-color--lighter: #555555;
+  --md-search-result-bg-color: #ffffff;
+
+  /* shadow flattening — we use hard offset shadows instead */
+  --md-shadow-z1: none;
+  --md-shadow-z2: none;
+  --md-shadow-z3: none;
+
+  /* retro radii: zero, everywhere */
+  --md-typeset-border-radius: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Slate (dark) scheme — grayscale treatment, no leftover color
+   -------------------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #1a1a1a;
+  --md-default-bg-color--light: #2a2a2a;
+  --md-default-bg-color--lighter: #3a3a3a;
+  --md-default-bg-color--lightest: #4a4a4a;
+  --md-default-fg-color: #eeeeee;
+  --md-default-fg-color--light: #cccccc;
+  --md-default-fg-color--lighter: #aaaaaa;
+  --md-default-fg-color--lightest: #888888;
+  --md-primary-fg-color: #2a2a2a;
+  --md-primary-fg-color--light: #333333;
+  --md-primary-fg-color--dark: #111111;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #ffffff;
+  --md-typeset-color: #eeeeee;
+  --md-typeset-a-color: #ffffff;
+  --md-code-fg-color: #eeeeee;
+  --md-code-fg-color--light: #cccccc;
+  --md-code-bg-color: #111111;
+  --md-code-bg-color--light: #222222;
+  --md-admonition-fg-color: #eeeeee;
+  --md-admonition-bg-color: #2a2a2a;
+  --md-footer-bg-color: #111111;
+  --md-footer-bg-color--dark: #000000;
+  --md-footer-fg-color: #eeeeee;
+  --md-footer-fg-color--light: #cccccc;
+  --md-footer-fg-color--lighter: #999999;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography — Silkscreen pixel font for chrome/headings, Geneva-ish body
+   -------------------------------------------------------------------------- */
+.md-header__title,
+.md-header__topic,
+.md-nav__title,
+.md-tabs__link,
+.md-footer__title,
+.md-typeset h1,
+.md-typeset h2 {
+  font-family: "Silkscreen", "Verdana", monospace;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset {
+  font-family: Verdana, Geneva, "Segoe UI", Tahoma, sans-serif;
+  font-size: 0.8rem; /* Verdana reads large; keep body highly legible */
+  line-height: 1.7;
+}
+
+.md-typeset code,
+.md-typeset pre,
+.md-typeset kbd {
+  font-family: "Courier New", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   4. Subtle dithered body background (2px checker at very low contrast)
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--md-default-bg-color);
+  background-image: repeating-conic-gradient(
+    rgba(0, 0, 0, 0.022) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: 2px 2px;
+}
+
+[data-md-color-scheme="slate"] body {
+  background-image: repeating-conic-gradient(
+    rgba(255, 255, 255, 0.03) 0% 25%,
+    transparent 0% 50%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   5. Header — platinum bar with 2px black bottom border + 45° dither texture
+   -------------------------------------------------------------------------- */
+.md-header {
+  background-color: var(--md-primary-fg-color);
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.05) 0,
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.md-header__title,
+.md-header__button,
+.md-header__topic,
+.md-search__input {
+  color: #000000;
+}
+
+.md-search__input {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #999999;
+}
+
+.md-search__input::placeholder {
+  color: #666666;
+}
+
+.md-search__output {
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.md-header[data-md-state="shadow"] {
+  box-shadow: none;
+}
+
+/* dark-mode header */
+[data-md-color-scheme="slate"] .md-header {
+  color: #eeeeee;
+  border-bottom-color: #ffffff;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.06) 0,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+[data-md-color-scheme="slate"] .md-header__title,
+[data-md-color-scheme="slate"] .md-header__button,
+[data-md-color-scheme="slate"] .md-header__topic {
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-search__input {
+  background-color: #111111;
+  color: #eeeeee;
+  border-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   6. Tabs bar — under header, platinum with black border
+   -------------------------------------------------------------------------- */
+.md-tabs {
+  background-color: #cccccc;
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.md-tabs__link {
+  color: #000000;
+  opacity: 1;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #111111;
+  color: #eeeeee;
+  border-bottom-color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active,
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   7. Sidebar navigation — white, 2px black border, inverted selection
+   -------------------------------------------------------------------------- */
+.md-sidebar--primary {
+  border-right: 2px solid #000000;
+  background-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+  background-color: #1a1a1a;
+  border-right-color: #ffffff;
+}
+
+.md-sidebar--secondary {
+  border-left: 2px solid #000000;
+  background-color: transparent;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
+  border-left-color: #ffffff;
+}
+
+.md-nav__link {
+  color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #eeeeee;
+}
+
+/* classic Mac selection: inverted black rectangle */
+.md-nav__link--active,
+.md-nav__link:active,
+.md-nav__item .md-nav__link--active {
+  background-color: #000000;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
+  background-color: #eeeeee;
+  color: #000000 !important;
+}
+
+.md-nav__link:hover {
+  background-color: #dddddd;
+  color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.md-nav__title {
+  background-color: #dddddd;
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  background-color: #2a2a2a;
+  color: #eeeeee;
+  border-bottom-color: #ffffff;
+}
+
+/* TOC active marker */
+.md-nav--secondary .md-nav__link--active {
+  background-color: #000000;
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Links — black + underlined; hover inverts (classic Mac highlight)
+   -------------------------------------------------------------------------- */
+.md-typeset a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.md-typeset a:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   9. Classic Mac window chrome — cards, code blocks, tabbed sets, details
+   -------------------------------------------------------------------------- */
+.md-typeset .highlight,
+.md-typeset pre {
+  background-color: #eeeeee;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.md-typeset pre > code {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.md-typeset code:not(pre code) {
+  background-color: #dddddd;
+  border: 1px solid #000000;
+  border-radius: 0;
+  box-shadow: none;
+  color: #000000;
+  padding: 0 0.25em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .highlight,
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background-color: #111111;
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+}
+[data-md-color-scheme="slate"] .md-typeset code:not(pre code) {
+  background-color: #333333;
+  border-color: #ffffff;
+  color: #eeeeee;
+}
+
+/* copy button stays visible on the retro chrome */
+.md-typeset .md-clipboard {
+  color: #000000;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-clipboard {
+  color: #eeeeee;
+}
+
+/* tabbed sets → Mac window */
+.md-typeset .tabbed-set {
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set {
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+}
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set > input:checked + label {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* details → Mac window */
+.md-typeset details {
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+  background-color: #ffffff;
+}
+
+.md-typeset details summary {
+  background-color: #dddddd;
+  border-bottom: 2px solid #000000;
+  border-radius: 0;
+  color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset details {
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+  background-color: #1a1a1a;
+}
+[data-md-color-scheme="slate"] .md-typeset details summary {
+  background-color: #2a2a2a;
+  border-bottom-color: #ffffff;
+  color: #eeeeee;
+}
+
+/* --------------------------------------------------------------------------
+   10. Admonitions — pinstriped Mac window title bar + close box
+   -------------------------------------------------------------------------- */
+.md-typeset .admonition,
+.md-typeset details.admonition {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details.admonition > summary {
+  position: relative;
+  background-color: #dddddd;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #dddddd 0,
+    #dddddd 2px,
+    #bbbbbb 2px,
+    #bbbbbb 4px
+  );
+  border-bottom: 2px solid #000000;
+  border-radius: 0;
+  color: #000000;
+  font-family: "Silkscreen", "Verdana", monospace;
+  font-size: 0.72rem;
+  padding-left: 2.2em;
+}
+
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details.admonition > summary::before {
+  background-color: #000000;
+}
+
+/* little square "close box" on the left of the title bar */
+.md-typeset .admonition > .admonition-title::after,
+.md-typeset details.admonition > summary::after {
+  content: "";
+  position: absolute;
+  left: 0.55em;
+  top: 50%;
+  width: 0.7em;
+  height: 0.7em;
+  margin-top: -0.35em;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #999999;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details.admonition {
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.admonition > summary {
+  background-color: #333333;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #333333 0,
+    #333333 2px,
+    #444444 2px,
+    #444444 4px
+  );
+  border-bottom-color: #ffffff;
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition > .admonition-title::after,
+[data-md-color-scheme="slate"] .md-typeset details.admonition > summary::after {
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   11. Tables — 2px black outer border, 1px grid, striped gray header
+   -------------------------------------------------------------------------- */
+.md-typeset table:not([class]) {
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #000000;
+  background-color: #ffffff;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #dddddd;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #dddddd 0,
+    #dddddd 2px,
+    #cccccc 2px,
+    #cccccc 4px
+  );
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  font-family: "Silkscreen", "Verdana", monospace;
+  font-size: 0.66rem;
+}
+
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+  border: 1px solid #000000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+  background-color: #1a1a1a;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: #333333;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #333333 0,
+    #333333 2px,
+    #444444 2px,
+    #444444 4px
+  );
+  color: #eeeeee;
+  border-bottom-color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td,
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  border-color: #aaaaaa;
+}
+
+/* --------------------------------------------------------------------------
+   12. Buttons & badges — rectangular, 2px border, hard shadow, no radius
+   -------------------------------------------------------------------------- */
+.md-button {
+  background-color: #dddddd;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000000;
+  color: #000000;
+  font-family: "Silkscreen", "Verdana", monospace;
+  font-size: 0.66rem;
+}
+
+.md-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.md-button:active {
+  box-shadow: 1px 1px 0 #000000;
+  transform: translate(2px, 2px);
+}
+
+[data-md-color-scheme="slate"] .md-button {
+  background-color: #333333;
+  border-color: #ffffff;
+  box-shadow: 3px 3px 0 #555555;
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   13. Blockquotes, rules, misc typography chrome
+   -------------------------------------------------------------------------- */
+.md-typeset blockquote {
+  border-left: 4px solid #000000;
+  background-color: #f4f4f4;
+  color: #000000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  border-left-color: #ffffff;
+  background-color: #222222;
+  color: #eeeeee;
+}
+
+.md-typeset hr {
+  border-bottom: 2px solid #000000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset hr {
+  border-bottom-color: #888888;
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  color: #000000;
+}
+
+.md-typeset h1 {
+  border-bottom: 2px solid #000000;
+  padding-bottom: 0.2em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  border-bottom-color: #ffffff;
+}
+
+/* header anchor links inherit retro link styling quietly */
+.md-typeset .headerlink {
+  color: #999999;
+}
+
+/* --------------------------------------------------------------------------
+   14. Mermaid diagrams — framed like a Mac window
+   -------------------------------------------------------------------------- */
+.md-typeset .mermaid {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  padding: 0.8em;
+  margin: 1em 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .mermaid {
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0 #555555;
+}
+
+/* --------------------------------------------------------------------------
+   15. Footer — gray with black top border
+   -------------------------------------------------------------------------- */
+.md-footer {
+  background-color: var(--md-footer-bg-color);
+  color: #000000;
+  border-top: 2px solid #000000;
+}
+
+.md-footer-meta {
+  background-color: #bbbbbb;
+  border-top: 1px solid #000000;
+}
+
+.md-footer__link,
+.md-footer__title,
+.md-footer__direction,
+.md-copyright,
+.md-copyright__highlight {
+  color: #000000;
+}
+
+.md-footer__link:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  border-top-color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: #000000;
+  border-top-color: #888888;
+}
+[data-md-color-scheme="slate"] .md-footer__link,
+[data-md-color-scheme="slate"] .md-footer__title,
+[data-md-color-scheme="slate"] .md-footer__direction,
+[data-md-color-scheme="slate"] .md-copyright,
+[data-md-color-scheme="slate"] .md-copyright__highlight {
+  color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .md-footer__link:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   16. Back-to-top button + search highlight in retro chrome
+   -------------------------------------------------------------------------- */
+.md-top {
+  background-color: #dddddd;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000000;
+  color: #000000;
+}
+
+.md-top:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.md-search-result mark,
+.md-typeset mark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   17. Mobile — keep retro chrome intact, soften shadows on tiny screens
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    background-color: #dddddd;
+    color: #000000;
+  }
+  .md-sidebar--primary {
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .admonition,
+  .md-typeset .highlight,
+  .md-typeset .tabbed-set,
+  .md-typeset details,
+  .md-typeset table:not([class]),
+  .md-typeset .mermaid {
+    box-shadow: 3px 3px 0 #000000;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. Mermaid — force rendered diagrams into grayscale Mac chrome.
+   Material auto-loads mermaid.js with its own default theme config, so a
+   JS-side theme init races with it. CSS with !important beats mermaid's
+   inline SVG fills/strokes deterministically.
+   -------------------------------------------------------------------------- */
+.md-typeset .mermaid .node rect,
+.md-typeset .mermaid .node polygon,
+.md-typeset .mermaid .node circle,
+.md-typeset .mermaid .node ellipse,
+.md-typeset .mermaid .node path,
+.md-typeset .mermaid .actor,
+.md-typeset .mermaid rect.basic.label-container {
+  fill: #ffffff !important;
+  stroke: #000000 !important;
+  stroke-width: 1.5px !important;
+}
+
+.md-typeset .mermaid .cluster rect,
+.md-typeset .mermaid .cluster polygon {
+  fill: #f0f0f0 !important;
+  stroke: #000000 !important;
+}
+
+.md-typeset .mermaid .edgePaths path,
+.md-typeset .mermaid .edgePath path,
+.md-typeset .mermaid .flowchart-link,
+.md-typeset .mermaid line {
+  stroke: #000000 !important;
+}
+
+.md-typeset .mermaid marker path,
+.md-typeset .mermaid .arrowheadPath {
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.md-typeset .mermaid .nodeLabel,
+.md-typeset .mermaid .edgeLabel,
+.md-typeset .mermaid .label,
+.md-typeset .mermaid text {
+  color: #000000 !important;
+  fill: #000000 !important;
+  font-family: Verdana, Geneva, sans-serif !important;
+}
+
+.md-typeset .mermaid .edgeLabel rect,
+.md-typeset .mermaid .labelBkg {
+  fill: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* dark scheme: invert diagram chrome */
+[data-md-color-scheme="slate"] .md-typeset .mermaid .node rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .node polygon,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .node circle,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .node ellipse,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .node path {
+  fill: #1a1a1a !important;
+  stroke: #eeeeee !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgePaths path,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .flowchart-link,
+[data-md-color-scheme="slate"] .md-typeset .mermaid line {
+  stroke: #eeeeee !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .mermaid marker path,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .arrowheadPath {
+  fill: #eeeeee !important;
+  stroke: #eeeeee !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .mermaid .nodeLabel,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .label,
+[data-md-color-scheme="slate"] .md-typeset .mermaid text {
+  color: #eeeeee !important;
+  fill: #eeeeee !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .labelBkg {
+  fill: #1a1a1a !important;
+}
+
+/* --------------------------------------------------------------------------
+   19. Admonition title bar — keep Material's icon clear of our close box
+   -------------------------------------------------------------------------- */
+.md-typeset .admonition > .admonition-title::before,
+.md-typeset details.admonition > summary::before {
+  left: 1.35em;
+  inset-inline-start: 1.35em;
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details.admonition > summary {
+  padding-left: 2.6em;
+}
