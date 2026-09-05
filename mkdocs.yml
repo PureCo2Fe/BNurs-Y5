@@ -37,6 +37,10 @@ theme:
 
 extra_css:
   - stylesheets/win11-fluent.css
+  - stylesheets/mermaid-lightbox.css
+
+extra_javascript:
+  - javascripts/mermaid-lightbox.js
 
 plugins:
   - search

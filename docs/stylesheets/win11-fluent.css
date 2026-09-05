@@ -140,6 +140,12 @@ body,
   font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, system-ui, sans-serif;
 }
 
+/* Content scaled down ~15% vs Material default (.8rem → .68rem);
+   headings/tables/admonitions use em, so everything scales proportionally */
+.md-typeset {
+  font-size: 0.68rem;
+}
+
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3,
