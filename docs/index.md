@@ -1,6 +1,6 @@
 # 🏠 Welcome to the Year 5 Study Guide! 🎓
 
-👋 Hey there, fellow night-shift scholar! This is my personal study hub for **HKUMed Bachelor of Nursing — Year 5** 🏥. Everything I learn, cram, and occasionally panic about lives here — styled like a **classic Macintosh from 1984** 🖥️, because studying is more fun when your notes look like they boot from a floppy disk. 💾
+👋 Hey there, fellow night-shift scholar! This is my personal study hub for **HKUMed Bachelor of Nursing — Year 5** 🏥. Everything I learn, cram, and occasionally panic about lives here — wrapped in a **clean Windows 11 look** 🪟, because studying is more fun when your notes feel like a fresh desktop on a Monday morning. ✨
 
 !!! tip "💡 How to use this site"
     Pick a course from the tabs above ☝️ or the table below 👇. Each course folder has its own landing page with roadmaps, topic lists, and diagrams. More notes drop in as the semester rolls on! 📅
@@ -37,11 +37,11 @@ flowchart LR
 
 ## ✅ Semester Checklist
 
-- [x] 🖥️ Set up retro Mac study site
+- [x] 🪟 Set up a fresh Windows 11 study site
 - [x] 📂 Create one folder per course
 - [ ] 🧠 Survive clinical reasoning
 - [ ] 🔬 Finish the EBP assignment
 - [ ] 🎉 Graduate!!!
 
-!!! note "🍎 Fun fact"
-    The original 1984 Macintosh had **128 KB of RAM** — this entire website is smaller than one modern cat photo. 🐈📷
+!!! note "🪟 Fun fact"
+    Windows 11's accent blue is officially called **"Fluent"** — and this site wears it proudly. This entire website is still smaller than one modern cat photo. 🐈📷

@@ -36,10 +36,7 @@ theme:
         name: Switch to light mode
 
 extra_css:
-  - stylesheets/retro-mac.css
-
-extra_javascript:
-  - javascripts/mermaid-init.js
+  - stylesheets/win11-fluent.css
 
 plugins:
   - search

@@ -1,0 +1,949 @@
+/* ==========================================================================
+   🪟  WINDOWS 11 FLUENT THEME — fresh, clean, WHITE design language
+   for MkDocs Material. Mica-inspired translucent header, soft diffuse depth
+   shadows, rounded corners, Windows accent blue #0067c0. No retro, no indigo.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Material design token overrides — light "Windows 11 white" scheme
+   -------------------------------------------------------------------------- */
+/* NOTE: Material's palette CSS defines its default indigo colors ON <body>
+   via [data-md-color-primary=indigo] / [data-md-color-accent=indigo]
+   attribute selectors, which shadow plain :root custom-property values for
+   all body descendants. We therefore bind our overrides to the same attribute
+   selectors (equal specificity, later in cascade → we win). */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-primary],
+[data-md-color-accent] {
+  /* brand + accent — Windows blue */
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #f9f9f9;
+  --md-primary-fg-color--dark: #e5e5e5;
+  --md-primary-bg-color: #1b1b1b;
+  --md-accent-fg-color: #0067c0;
+  --md-accent-fg-color--transparent: rgba(0, 103, 192, 0.1);
+
+  /* default (light) scheme */
+  --md-default-bg-color: #ffffff;
+  --md-default-bg-color--light: #f9f9f9;
+  --md-default-bg-color--lighter: #f3f3f3;
+  --md-default-bg-color--lightest: #fdfdfd;
+  --md-default-fg-color: #1b1b1b;
+  --md-default-fg-color--light: #5d5d5d;
+  --md-default-fg-color--lighter: #8a8a8a;
+  --md-default-fg-color--lightest: #b9b9b9;
+
+  /* typography */
+  --md-typeset-color: #1b1b1b;
+  --md-typeset-a-color: #0067c0;
+
+  /* code */
+  --md-code-fg-color: #1b1b1b;
+  --md-code-fg-color--light: #5d5d5d;
+  --md-code-bg-color: #f3f3f3;
+  --md-code-bg-color--light: #f6f8fa;
+  --md-code-hl-color: rgba(0, 103, 192, 0.08);
+  --md-code-hl-color--light: rgba(0, 103, 192, 0.06);
+
+  /* admonitions / footnotes / search */
+  --md-admonition-fg-color: #1b1b1b;
+  --md-admonition-bg-color: #ffffff;
+  --md-footer-bg-color: #f9f9f9;
+  --md-footer-bg-color--dark: #f3f3f3;
+  --md-footer-fg-color: #5d5d5d;
+  --md-footer-fg-color--light: #5d5d5d;
+  --md-footer-fg-color--lighter: #8a8a8a;
+  --md-search-result-bg-color: #ffffff;
+
+  /* Fluent depth — soft, diffuse shadows only */
+  --md-shadow-z1: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  --md-shadow-z2: 0 3.2px 7.2px rgba(0, 0, 0, 0.08), 0 0.6px 1.8px rgba(0, 0, 0, 0.05);
+  --md-shadow-z3: 0 6.4px 14.4px rgba(0, 0, 0, 0.10), 0 1.2px 3.6px rgba(0, 0, 0, 0.06);
+
+  /* Fluent radii */
+  --md-typeset-border-radius: 8px;
+
+  /* Mermaid theme variables — Material's JS reads these via getComputedStyle
+     and generates the mermaid config from them, so they must be set here. */
+  --md-mermaid-font-family: "Segoe UI Variable Text", "Segoe UI", Verdana, sans-serif;
+  --md-mermaid-edge-color: #8a8a8a;
+  --md-mermaid-node-bg-color: #ffffff;
+  --md-mermaid-node-fg-color: #8a8a8a;
+  --md-mermaid-label-bg-color: #ffffff;
+  --md-mermaid-label-fg-color: #1b1b1b;
+}
+
+/* --------------------------------------------------------------------------
+   2. Slate (dark) scheme — Windows 11 dark
+   -------------------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #202020;
+  --md-default-bg-color--light: #2b2b2b;
+  --md-default-bg-color--lighter: #3d3d3d;
+  --md-default-bg-color--lightest: #2d2d2d;
+  --md-default-fg-color: #ececec;
+  --md-default-fg-color--light: #cfcfcf;
+  --md-default-fg-color--lighter: #9a9a9a;
+  --md-default-fg-color--lightest: #6b6b6b;
+
+  --md-primary-fg-color: #2b2b2b;
+  --md-primary-fg-color--light: #323232;
+  --md-primary-fg-color--dark: #242424;
+  --md-primary-bg-color: #ececec;
+  --md-accent-fg-color: #4cc2ff;
+  --md-accent-fg-color--transparent: rgba(76, 194, 255, 0.12);
+
+  --md-typeset-color: #ececec;
+  --md-typeset-a-color: #4cc2ff;
+
+  --md-code-fg-color: #ececec;
+  --md-code-fg-color--light: #cfcfcf;
+  --md-code-bg-color: #2d2d2d;
+  --md-code-bg-color--light: #282828;
+  --md-code-hl-color: rgba(76, 194, 255, 0.14);
+  --md-code-hl-color--light: rgba(76, 194, 255, 0.10);
+
+  --md-admonition-fg-color: #ececec;
+  --md-admonition-bg-color: #2d2d2d;
+  --md-footer-bg-color: #242424;
+  --md-footer-bg-color--dark: #1e1e1e;
+  --md-footer-fg-color: #cfcfcf;
+  --md-footer-fg-color--light: #cfcfcf;
+  --md-footer-fg-color--lighter: #9a9a9a;
+
+  --md-shadow-z1: 0 1.6px 3.6px rgba(0, 0, 0, 0.35), 0 0.3px 0.9px rgba(0, 0, 0, 0.25);
+  --md-shadow-z2: 0 3.2px 7.2px rgba(0, 0, 0, 0.40), 0 0.6px 1.8px rgba(0, 0, 0, 0.30);
+  --md-shadow-z3: 0 6.4px 14.4px rgba(0, 0, 0, 0.45), 0 1.2px 3.6px rgba(0, 0, 0, 0.35);
+
+  /* Mermaid theme variables — dark inversion */
+  --md-mermaid-font-family: "Segoe UI Variable Text", "Segoe UI", Verdana, sans-serif;
+  --md-mermaid-edge-color: #9a9a9a;
+  --md-mermaid-node-bg-color: #3d3d3d;
+  --md-mermaid-node-fg-color: #6b6b6b;
+  --md-mermaid-label-bg-color: #3d3d3d;
+  --md-mermaid-label-fg-color: #ececec;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography — Segoe UI everywhere, Cascadia for code
+   -------------------------------------------------------------------------- */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-text-font: "Segoe UI Variable Text", "Segoe UI", -apple-system, system-ui, sans-serif;
+  --md-code-font: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+}
+
+body,
+.md-typeset {
+  font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, system-ui, sans-serif;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: "Segoe UI Variable Text", "Segoe UI", -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset h1 { font-weight: 600; }
+.md-typeset h2 { font-weight: 600; }
+
+.md-typeset code,
+.md-typeset kbd,
+.md-typeset pre,
+.md-typeset samp,
+.md-typeset .highlight,
+.md-typeset .highlighttable {
+  font-family: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+}
+
+/* Windows selection blue tint */
+::selection {
+  background: #cce4f7;
+  color: #1b1b1b;
+}
+[data-md-color-scheme="slate"] ::selection {
+  background: rgba(76, 194, 255, 0.28);
+  color: #ffffff;
+}
+
+/* Links — accent blue, darker on hover with underline */
+.md-typeset a {
+  color: var(--md-accent-fg-color);
+  text-decoration: none;
+  transition: color 0.1s ease;
+}
+.md-typeset a:hover {
+  color: #005a9e;
+  text-decoration: underline;
+}
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #99daff;
+}
+
+/* Focus rings — 2px accent outline offset 2px (Fluent focus visual) */
+a:focus-visible,
+button:focus-visible,
+.md-nav__link:focus-visible,
+.md-tabs__link:focus-visible,
+.md-header__button:focus-visible,
+.md-search__input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header — white Mica-style translucent bar with hairline
+   -------------------------------------------------------------------------- */
+.md-header {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  color: #1b1b1b;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(32, 32, 32, 0.85);
+  color: #ececec;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.md-header[data-md-state="shadow"] {
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+}
+
+.md-header__title,
+.md-header__topic,
+.md-header__button,
+.md-header .md-icon {
+  color: inherit;
+}
+
+.md-header__button {
+  border-radius: 4px;
+  transition: background-color 0.1s ease;
+}
+.md-header__button:hover {
+  background: #f3f3f3;
+}
+[data-md-color-scheme="slate"] .md-header__button:hover {
+  background: #3d3d3d;
+}
+
+.md-search__input {
+  background: #f3f3f3;
+  border-radius: 4px;
+  color: #1b1b1b;
+}
+.md-search__input::placeholder {
+  color: #8a8a8a;
+}
+.md-search__input:hover {
+  background: #ececec;
+}
+.md-search__form {
+  border-radius: 4px;
+}
+[data-md-color-scheme="slate"] .md-search__input {
+  background: #3d3d3d;
+  color: #ececec;
+}
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: #9a9a9a;
+}
+[data-md-color-scheme="slate"] .md-search__input:hover {
+  background: #464646;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tabs bar — white, active tab = accent blue text + 2px bottom border
+   -------------------------------------------------------------------------- */
+.md-tabs {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  color: #1b1b1b;
+  border-bottom: 1px solid #e5e5e5;
+}
+[data-md-color-scheme="slate"] .md-tabs {
+  background: rgba(32, 32, 32, 0.85);
+  color: #ececec;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.md-tabs__link {
+  color: #5d5d5d;
+  transition: color 0.1s ease;
+}
+.md-tabs__link:hover {
+  color: #1b1b1b;
+}
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 0 var(--md-accent-fg-color);
+}
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #9a9a9a;
+}
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: #ececec;
+}
+
+/* --------------------------------------------------------------------------
+   6. Sidebar navigation — white; hover #f3f3f3 rounded;
+      active = #f0f6fc + 3px accent pill on the left edge
+   -------------------------------------------------------------------------- */
+.md-sidebar,
+.md-nav {
+  background: transparent;
+}
+.md-sidebar__scrollwrap {
+  background: transparent;
+}
+
+.md-nav__link {
+  border-radius: 4px;
+  color: #1b1b1b;
+  transition: background-color 0.1s ease, color 0.1s ease;
+  position: relative;
+}
+.md-nav__link:hover {
+  background: #f3f3f3;
+  color: #1b1b1b;
+}
+.md-nav__link--active,
+.md-nav__link:active,
+.md-nav__item--active > .md-nav__link {
+  background: #f0f6fc;
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}
+/* Windows 11 selection pill on the left edge of the active item */
+.md-nav__link--active::before,
+.md-nav__item--active > .md-nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1.1em;
+  border-radius: 2px;
+  background: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #ececec;
+}
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background: #3d3d3d;
+  color: #ececec;
+}
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  background: rgba(76, 194, 255, 0.12);
+  color: #4cc2ff;
+}
+
+.md-nav__title {
+  color: #1b1b1b;
+}
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: #ececec;
+}
+
+/* --------------------------------------------------------------------------
+   7. Content surfaces — admonitions, details, code, tables, buttons
+   -------------------------------------------------------------------------- */
+
+/* ---- Admonitions: white card, hairline, 8px radius, soft shadow,
+        4px rounded accent left inset bar, plain semibold title ---- */
+/* NOTE: the [class] attribute hack lifts these rules to the same (or higher)
+   specificity as Material's per-type rules (.md-typeset .admonition.tip etc.),
+   and extra_css loads later, so the white card always wins over type tints. */
+.md-typeset .admonition[class],
+.md-typeset details[class] {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5; /* reset Material's thick left border */
+  border-radius: 8px;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  color: var(--md-admonition-fg-color);
+  position: relative;
+  overflow: hidden;
+}
+/* 4px rounded accent-colored inset bar on the left */
+.md-typeset .admonition[class]::before,
+.md-typeset details[class]::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--md-admonition-accent, #0067c0);
+}
+
+.md-typeset .admonition[class] > .admonition-title,
+.md-typeset details[class] > summary {
+  background-color: transparent;
+  border: none;
+  color: #1b1b1b;
+  font-weight: 600;
+  padding-left: 1.6rem;
+}
+.md-typeset .admonition[class] > .admonition-title::before,
+.md-typeset details[class] > summary::before {
+  background-color: var(--md-admonition-accent, #0067c0);
+}
+
+/* Fluent status colors per admonition type */
+.md-typeset .admonition.note,
+.md-typeset details.note { --md-admonition-accent: #0067c0; }
+.md-typeset .admonition.info,
+.md-typeset .admonition.todo,
+.md-typeset details.info { --md-admonition-accent: #0067c0; }
+.md-typeset .admonition.tip,
+.md-typeset .admonition.hint,
+.md-typeset .admonition.important,
+.md-typeset details.tip { --md-admonition-accent: #107c10; }
+.md-typeset .admonition.success,
+.md-typeset .admonition.check,
+.md-typeset .admonition.done,
+.md-typeset details.success { --md-admonition-accent: #107c10; }
+.md-typeset .admonition.warning,
+.md-typeset .admonition.caution,
+.md-typeset .admonition.attention,
+.md-typeset details.warning { --md-admonition-accent: #f9a825; }
+.md-typeset .admonition.danger,
+.md-typeset .admonition.error,
+.md-typeset details.danger { --md-admonition-accent: #c42b1c; }
+.md-typeset .admonition.failure,
+.md-typeset .admonition.fail,
+.md-typeset .admonition.missing,
+.md-typeset details.failure { --md-admonition-accent: #c42b1c; }
+.md-typeset .admonition.question,
+.md-typeset .admonition.help,
+.md-typeset .admonition.faq,
+.md-typeset details.question { --md-admonition-accent: #5c2e91; }
+.md-typeset .admonition.abstract,
+.md-typeset .admonition.summary,
+.md-typeset .admonition.tldr,
+.md-typeset details.abstract { --md-admonition-accent: #00b7c3; }
+.md-typeset .admonition.example,
+.md-typeset details.example { --md-admonition-accent: #8a6d3b; }
+.md-typeset .admonition.quote,
+.md-typeset .admonition.cite,
+.md-typeset details.quote { --md-admonition-accent: #8a8a8a; }
+
+[data-md-color-scheme="slate"] .md-typeset .admonition[class],
+[data-md-color-scheme="slate"] .md-typeset details[class] {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+  border-left-color: #3d3d3d;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.35), 0 0.3px 0.9px rgba(0, 0, 0, 0.25);
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition[class] > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details[class] > summary {
+  background-color: transparent;
+  color: #ececec;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset .admonition.info,
+[data-md-color-scheme="slate"] .md-typeset .admonition.todo {
+  --md-admonition-accent: #4cc2ff;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip,
+[data-md-color-scheme="slate"] .md-typeset .admonition.hint,
+[data-md-color-scheme="slate"] .md-typeset .admonition.important,
+[data-md-color-scheme="slate"] .md-typeset .admonition.success,
+[data-md-color-scheme="slate"] .md-typeset .admonition.check,
+[data-md-color-scheme="slate"] .md-typeset .admonition.done {
+  --md-admonition-accent: #6ccb5f;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning,
+[data-md-color-scheme="slate"] .md-typeset .admonition.caution,
+[data-md-color-scheme="slate"] .md-typeset .admonition.attention {
+  --md-admonition-accent: #fce100;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition.danger,
+[data-md-color-scheme="slate"] .md-typeset .admonition.error,
+[data-md-color-scheme="slate"] .md-typeset .admonition.failure,
+[data-md-color-scheme="slate"] .md-typeset .admonition.fail,
+[data-md-color-scheme="slate"] .md-typeset .admonition.missing {
+  --md-admonition-accent: #f99e94;
+}
+
+/* ---- Code blocks: #f6f8fa card, hairline, 8px radius, soft shadow ---- */
+.md-typeset .highlight,
+.md-typeset pre {
+  background: #f6f8fa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+}
+.md-typeset .highlight pre {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-typeset .highlight,
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background: #282828;
+  border-color: #3d3d3d;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.35), 0 0.3px 0.9px rgba(0, 0, 0, 0.25);
+}
+
+/* Inline code — gray pill, 4px radius */
+.md-typeset code:not(.highlight code) {
+  background: #f3f3f3;
+  color: #1b1b1b;
+  border-radius: 4px;
+  box-shadow: none;
+  padding: 0.1em 0.35em;
+}
+[data-md-color-scheme="slate"] .md-typeset code:not(.highlight code) {
+  background: #3d3d3d;
+  color: #ececec;
+}
+
+/* Code copy button */
+.md-typeset .md-clipboard {
+  color: #8a8a8a;
+  border-radius: 4px;
+}
+.md-typeset .md-clipboard:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---- Tables: hairline outer border, 8px radius, header row layered ---- */
+.md-typeset table:not([class]) {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  display: table; /* keep rounded corners with overflow hidden */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.md-typeset table:not([class]) th {
+  background: #f9f9f9;
+  font-weight: 600;
+  color: #1b1b1b;
+  border-bottom: 1px solid #e5e5e5;
+}
+.md-typeset table:not([class]) td {
+  border-top: 1px solid #ececec;
+}
+.md-typeset table:not([class]) tr:first-child td {
+  border-top: none;
+}
+.md-typeset table:not([class]) tr:hover td {
+  background: #f5f5f5;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: #2b2b2b;
+  color: #ececec;
+  border-bottom-color: #3d3d3d;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  border-top-color: #383838;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
+  background: #353535;
+}
+
+/* ---- Buttons / back-to-top: white pill, subtle Fluent lift on hover ---- */
+.md-typeset .md-button {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #1b1b1b;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.1s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+.md-typeset .md-button:hover {
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  transform: translateY(-1px);
+}
+.md-typeset .md-button--primary {
+  background: #0067c0;
+  border-color: #0067c0;
+  color: #ffffff;
+}
+.md-typeset .md-button--primary:hover {
+  background: #005a9e;
+  border-color: #005a9e;
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+  color: #ececec;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button:hover {
+  background: #3d3d3d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.md-top {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  color: #1b1b1b;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.1s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+.md-top:hover {
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  transform: translateY(-1px);
+}
+[data-md-color-scheme="slate"] .md-top {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+  color: #ececec;
+}
+
+/* Task list checkboxes — accent blue when checked */
+.md-typeset .task-list-control .task-list-indicator::before {
+  background-color: var(--md-accent-fg-color);
+}
+
+/* Horizontal rules — thin hairline */
+.md-typeset hr {
+  border-bottom: 1px solid #e5e5e5;
+}
+[data-md-color-scheme="slate"] .md-typeset hr {
+  border-bottom-color: #3d3d3d;
+}
+
+/* Keyboard keys */
+.md-typeset kbd {
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #1b1b1b;
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-typeset kbd {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+  color: #ececec;
+}
+
+/* --------------------------------------------------------------------------
+   8. Right-rail TOC — active item accent blue with left border indicator
+   -------------------------------------------------------------------------- */
+.md-nav--secondary .md-nav__link {
+  color: #5d5d5d;
+}
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__item--active > .md-nav__link {
+  background: transparent;
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 0 var(--md-accent-fg-color);
+  border-radius: 0;
+}
+.md-nav--secondary .md-nav__link--active::before,
+.md-nav--secondary .md-nav__item--active > .md-nav__link::before {
+  content: none; /* no pill in TOC — left border indicator instead */
+}
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: #9a9a9a;
+}
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
+  color: #4cc2ff;
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer — layered surface with top hairline
+   -------------------------------------------------------------------------- */
+.md-footer {
+  background: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+.md-footer-meta,
+.md-footer-copyright {
+  background: transparent;
+}
+[data-md-color-scheme="slate"] .md-footer {
+  background: #242424;
+  border-top-color: #3d3d3d;
+}
+
+/* --------------------------------------------------------------------------
+   10. Search results
+   -------------------------------------------------------------------------- */
+.md-search-result {
+  border-radius: 8px;
+}
+.md-search-result__link:hover {
+  background: #f5f5f5;
+}
+[data-md-color-scheme="slate"] .md-search-result__link:hover {
+  background: #353535;
+}
+
+/* --------------------------------------------------------------------------
+   11. Mermaid — restyle the auto-rendered SVG to Fluent via !important.
+       Material loads mermaid with its default theme; CSS is the reliable
+       path. White node fills, gray strokes, dark text, light cluster fill,
+       edge labels on white pills.
+   -------------------------------------------------------------------------- */
+.md-typeset .mermaid {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.07), 0 0.3px 0.9px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+/* Node shapes — white fill, gray-blue stroke */
+.md-typeset .mermaid svg .node rect,
+.md-typeset .mermaid svg .node polygon,
+.md-typeset .mermaid svg .node circle,
+.md-typeset .mermaid svg .node ellipse,
+.md-typeset .mermaid svg .node path,
+.md-typeset .mermaid svg g.node > rect,
+.md-typeset .mermaid svg g.node > polygon,
+.md-typeset .mermaid svg g.node > circle,
+.md-typeset .mermaid svg g.node > ellipse {
+  fill: #ffffff !important;
+  stroke: #8a8a8a !important;
+  stroke-width: 1px !important;
+}
+
+/* Node text / labels */
+.md-typeset .mermaid svg .nodeLabel,
+.md-typeset .mermaid svg .node .label,
+.md-typeset .mermaid svg text,
+.md-typeset .mermaid svg tspan {
+  fill: #1b1b1b !important;
+  color: #1b1b1b !important;
+  font-family: "Segoe UI Variable Text", "Segoe UI", Verdana, sans-serif !important;
+}
+.md-typeset .mermaid svg .nodeLabel p {
+  color: #1b1b1b !important;
+}
+
+/* Edges — gray-blue strokes */
+.md-typeset .mermaid svg .edgePath path,
+.md-typeset .mermaid svg .flowchart-link,
+.md-typeset .mermaid svg path.edge-thickness-normal {
+  stroke: #8a8a8a !important;
+}
+.md-typeset .mermaid svg marker path,
+.md-typeset .mermaid svg .marker {
+  fill: #8a8a8a !important;
+  stroke: #8a8a8a !important;
+}
+
+/* Edge labels — white pill background */
+.md-typeset .mermaid svg .edgeLabel,
+.md-typeset .mermaid svg .edgeLabel rect {
+  background-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+.md-typeset .mermaid svg .edgeLabel p,
+.md-typeset .mermaid svg .edgeLabel span,
+.md-typeset .mermaid svg .edgeLabel div {
+  background-color: #ffffff !important;
+  color: #1b1b1b !important;
+}
+
+/* Clusters / subgraphs — light layered fill */
+.md-typeset .mermaid svg .cluster rect,
+.md-typeset .mermaid svg g.cluster > rect {
+  fill: #f6f8fa !important;
+  stroke: #e5e5e5 !important;
+  rx: 8px !important;
+}
+.md-typeset .mermaid svg .cluster-label,
+.md-typeset .mermaid svg .cluster span,
+.md-typeset .mermaid svg .cluster p {
+  color: #5d5d5d !important;
+  fill: #5d5d5d !important;
+}
+
+/* ---- Mermaid under the slate (dark) scheme — Win11 dark inversion ---- */
+[data-md-color-scheme="slate"] .md-typeset .mermaid {
+  background: #2d2d2d;
+  border-color: #3d3d3d;
+  box-shadow: 0 1.6px 3.6px rgba(0, 0, 0, 0.35), 0 0.3px 0.9px rgba(0, 0, 0, 0.25);
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node polygon,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node circle,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node ellipse,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node path,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg g.node > rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg g.node > polygon,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg g.node > circle,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg g.node > ellipse {
+  fill: #3d3d3d !important;
+  stroke: #6b6b6b !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .nodeLabel,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node .label,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg text,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg tspan,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .nodeLabel p {
+  fill: #ececec !important;
+  color: #ececec !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgePath path,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .flowchart-link,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg path.edge-thickness-normal {
+  stroke: #9a9a9a !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg marker path,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .marker {
+  fill: #9a9a9a !important;
+  stroke: #9a9a9a !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel rect {
+  background-color: #3d3d3d !important;
+  fill: #3d3d3d !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel p,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel span,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel div {
+  background-color: #3d3d3d !important;
+  color: #ececec !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg g.cluster > rect {
+  fill: #282828 !important;
+  stroke: #3d3d3d !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster-label,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster span,
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster p {
+  color: #cfcfcf !important;
+  fill: #cfcfcf !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. Misc Fluent polish
+   -------------------------------------------------------------------------- */
+
+/* Scrollbars — thin, quiet (WebKit-based browsers) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background: #555;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  background: #6b6b6b;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Header anchor permalinks */
+.md-typeset .headerlink {
+  color: #b9b9b9;
+}
+.md-typeset .headerlink:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* Content action buttons (view source) */
+.md-content__button {
+  color: #8a8a8a;
+  border-radius: 4px;
+}
+.md-content__button:hover {
+  color: var(--md-accent-fg-color);
+  background: #f3f3f3;
+}
+[data-md-color-scheme="slate"] .md-content__button:hover {
+  background: #3d3d3d;
+}
+
+/* Blockquotes — subtle layered surface */
+.md-typeset blockquote {
+  background: #f9f9f9;
+  border-left: 4px solid #e5e5e5;
+  border-radius: 0 8px 8px 0;
+  color: #5d5d5d;
+  padding: 0.8rem 1.2rem;
+}
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  background: #2b2b2b;
+  border-left-color: #3d3d3d;
+  color: #cfcfcf;
+}
+
+/* Tabbed content sets — clean segmented control look */
+.md-typeset .tabbed-set {
+  border-radius: 8px;
+}
+.md-typeset .tabbed-set > input:checked + label {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .tabbed-set > label:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* Announce bar (if ever used) */
+.md-banner {
+  background: #0067c0;
+  color: #ffffff;
+}
+
+/* Navigation expansion toggles */
+.md-nav__icon {
+  color: #8a8a8a;
+}
+
+/* Emoji (twemoji) untouched — no rules targeting .twemoji / emojis */
+
+/* Footer pagination buttons */
+.md-footer-nav__link {
+  border-radius: 8px;
+  transition: background-color 0.1s ease;
+}
+.md-footer-nav__link:hover {
+  background: rgba(0, 103, 192, 0.06);
+}
