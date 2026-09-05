@@ -1,62 +1,31 @@
-# 🎓 Welcome to HKUMed BNurs Year 5 Study Guide
+# 🎓 Welcome to My Study Hub! 📚
 
-&gt; 🏥 *Empowering Future Nurses, One Note at a Time* ✨
-
----
-
-## 📚 About This Repository
-
-This is a comprehensive **digital study companion** built with **MkDocs Material** 📖, dedicated to storing and organizing all study materials for **HKUMed BNurs Year 5** courses 🩺.
-
-Whether you're cramming for exams 📝, reviewing clinical concepts 🏩, or just trying to survive Year 5 😅 — this guide has got your back! 💪
+!!! tip "🩺 HKUMed BNurs Year 5"
+    This site is my personal collection of 📖 **Study Guides** for the **HKUMed BNurs Year 5** courses — all in one cozy place! ✨
 
 ---
 
-## 🗓️ Year 5 Course Catalogue
+## 📚 Year 5 Courses
 
-| 📋 Course Code | 🏷️ Course Name | 🔗 Status |
-|:--|:--|:--|
-| `NURS5602` | 🧠 **Clinical Reasoning in Practice** | 🚧 Coming Soon |
-| `NURS5601` | 🎗️ **Oncology Nursing and Palliative Care** | 🚧 Coming Soon |
-| `NURS5600` | 👴👵 **Nursing of Older Adults** | 🚧 Coming Soon |
-| `NURS5603` | 👑 **Leadership, Management and Informatics** | 🚧 Coming Soon |
-| `NURS5607` | 📊 **Evidence-based Practice** | 🚧 Coming Soon |
-
----
-
-## ✨ Features
-
-| 🌟 Feature | 💬 Description |
-|:--|:--|
-| 🎨 **Material Design** | Beautiful, modern interface that makes studying less painful |
-| 🌗 **Auto Dark/Light Mode** | Easy on the eyes during those 3 AM study sessions 🌙 |
-| 🔍 **Full-text Search** | Find that one slide you swear you saw somewhere... |
-| 📊 **Mermaid Diagrams** | Visualize care pathways & clinical reasoning like a pro |
-| 📱 **Mobile Friendly** | Study on the MTR, in the library, or hiding in the pantry ☕ |
+| 🏷️ Course Code | 📘 Course Title |
+|:--:|:--|
+| 🧠 **NURS5602** | Clinical Reasoning in Practice |
+| 🎗️ **NURS5601** | Oncology Nursing and Palliative Care |
+| 👵 **NURS5600** | Nursing of Older Adults |
+| 👑 **NURS5603** | Leadership, Management and Informatics |
+| 🔬 **NURS5607** | Evidence-based Practice |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Navigation
 
-Navigate through the **📂 sidebar** or use the **🔎 search bar** to explore course content.
-
-&gt; 💡 *Tip: Bookmark this page for instant access during clinical placements!* 📌
+- 🧠 [NURS5602 – Clinical Reasoning in Practice](NURS5602.md) — sharpen your clinical thinking! 💡
+- 🎗️ [NURS5601 – Oncology Nursing & Palliative Care](NURS5601.md) — caring with compassion ❤️
+- 👵 [NURS5600 – Nursing of Older Adults](NURS5600.md) — supporting healthy ageing 🌿
+- 👑 [NURS5603 – Leadership, Management & Informatics](NURS5603.md) — lead with confidence 📊
+- 🔬 [NURS5607 – Evidence-based Practice](NURS5607.md) — research meets real practice 🧪
 
 ---
 
-## 🗺️ Site Map Preview
-
-```mermaid
-graph TD
-    🏠[Home] --&gt; 🧠[NURS5602&lt;br/&gt;Clinical Reasoning]
-    🏠 --&gt; 🎗️[NURS5601&lt;br/&gt;Oncology & Palliative]
-    🏠 --&gt; 👴[NURS5600&lt;br/&gt;Older Adults]
-    🏠 --&gt; 👑[NURS5603&lt;br/&gt;Leadership & Informatics]
-    🏠 --&gt; 📊[NURS5607&lt;br/&gt;Evidence-based Practice]
-    
-    style 🏠 fill:#4f46e5,color:#fff
-    style 🧠 fill:#06b6d4,color:#fff
-    style 🎗️ fill:#ec4899,color:#fff
-    style 👴 fill:#f59e0b,color:#fff
-    style 👑 fill:#8b5cf6,color:#fff
-    style 📊 fill:#10b981,color:#fff
+!!! success "✅ Study Smart, Not Hard!"
+    Keep calm, stay curious, and good luck with Year 5! 🍀💪
