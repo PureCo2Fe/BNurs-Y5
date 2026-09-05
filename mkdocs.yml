@@ -66,18 +66,13 @@ markdown_extensions:
 
 nav:
   - 🏠 Home: index.md
-  - 🧠 NURS5602 · Clinical Reasoning:
+  - 🧠 NURS5602 · CRP:
       - nurs5602-clinical-reasoning/index.md
-      - 🗺️ Overview & Roadmap: nurs5602-clinical-reasoning/overview.md
-  - 🎗️ NURS5601 · Oncology & Palliative:
+  - 🎗️ NURS5601 · Oncology:
       - nurs5601-oncology-palliative/index.md
-      - 🗺️ Overview & Roadmap: nurs5601-oncology-palliative/overview.md
   - 👵 NURS5600 · Older Adults:
       - nurs5600-older-adults/index.md
-      - 🗺️ Overview & Roadmap: nurs5600-older-adults/overview.md
-  - 👑 NURS5603 · Leadership & Informatics:
+  - 👑 NURS5603 · Leadership:
       - nurs5603-leadership-informatics/index.md
-      - 🗺️ Overview & Roadmap: nurs5603-leadership-informatics/overview.md
-  - 🔬 NURS5607 · Evidence-based Practice:
+  - 🔬 NURS5607 · EBP:
       - nurs5607-evidence-based-practice/index.md
-      - 🗺️ Overview & Roadmap: nurs5607-evidence-based-practice/overview.md
