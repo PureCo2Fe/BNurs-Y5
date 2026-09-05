@@ -1,6 +1,6 @@
 # 🖥️ BNurs Year 5 Study Guide
 
-Personal study-guide hub for **HKUMed Bachelor of Nursing — Year 5** courses 🩺, built with **MkDocs + Material** and styled like a **classic 1984 Macintosh** ⚫⚪ (pixel fonts, pinstripe title bars, hard shadows — no default Material look).
+Personal study-guide hub for **HKUMed Bachelor of Nursing — Year 5** courses 🩺, built with **MkDocs + Material**
 
 🌐 **Live site:** <https://y5.note.co2fe.eu.org>
 
